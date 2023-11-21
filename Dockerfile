@@ -1,15 +1,6 @@
 FROM debian:stable-slim
-RUN set -ex; \
-    apt-get update; \
-    apt-get upgrade; \
-    apt-get install -y \
-      bash \
-      git \
-      net-tools \
-      novnc \
-      supervisor \
-      xterm \
-      python3-pip
+
+RUN apt-get install python3-pip
 
 RUN   pip uninstall pillow --break-system-packages \
       pip uninstall pyyaml --break-system-packages \
@@ -22,7 +13,16 @@ RUN   pip install pillow==10.0.1 --break-system-packages \
       pip install pygments>=2.15.0 --break-system-packages \
       pip install cryptography==41.0.4 --break-system-packages 
 
-RUN pip install certifi==2023.7.22 --break-system-packages 
+RUN set -ex; \
+    apt-get update; \
+    apt-get upgrade; \
+    apt-get install -y \
+      bash \
+      git \
+      net-tools \
+      novnc \
+      supervisor \
+      xterm 
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
@@ -35,7 +35,7 @@ ENV HOME=/root \
     RUN_XTERM=no \
     RUN_FLUXBOX=no
 
-RUN apt-get remove python3-pip -y
+RUN apt-get purge python3-pip -y
 
 COPY . /novnc-docker
 
