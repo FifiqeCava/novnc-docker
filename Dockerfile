@@ -8,7 +8,8 @@ RUN set -ex; \
       net-tools \
       novnc \
       supervisor \
-      xterm 
+      xterm \
+      python3-pip
 
 RUN   pip uninstall pillow --break-system-packages \
       pip uninstall pyyaml --break-system-packages \
@@ -36,6 +37,8 @@ ENV HOME=/root \
     DISPLAY_HEIGHT=768 \
     RUN_XTERM=no \
     RUN_FLUXBOX=no
+
+RUN apt-get uninstall python3-pip -y
 
 COPY . /novnc-docker
 
