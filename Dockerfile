@@ -8,9 +8,8 @@ RUN set -ex; \
       net-tools \
       novnc \
       supervisor \
-      xterm 
-
-RUN python3 -m pip install pip
+      xterm \
+      python3-pip
 
 RUN   pip install pillow --upgrade \
       pip install pyyaml --upgrade \
