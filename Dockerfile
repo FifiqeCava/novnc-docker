@@ -9,7 +9,10 @@ RUN set -ex; \
       net-tools \
       novnc \
       supervisor \
-      xterm 
+      x11vnc \
+      xterm \
+      fluxbox \
+      xvfb
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
@@ -20,7 +23,7 @@ ENV HOME=/root \
     DISPLAY_WIDTH=1024 \
     DISPLAY_HEIGHT=768 \
     RUN_XTERM=no \
-    RUN_FLUXBOX=no
+    RUN_FLUXBOX=yes
 
 COPY . /novnc-docker
 
