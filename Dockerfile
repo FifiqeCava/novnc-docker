@@ -35,7 +35,7 @@ ENV HOME=/root \
     RUN_XTERM=no \
     RUN_FLUXBOX=no
 
-RUN apt-get uninstall python3-pip -y
+RUN apt-get remove python3-pip -y
 
 COPY . /novnc-docker
 
