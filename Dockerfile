@@ -1,6 +1,7 @@
-FROM debian:bullseye-slim
+FROM debian:stable-slim
 RUN set -ex; \
     apt-get update; \
+    apt-get upgrade; \
     apt-get install -y \
       bash \
       git \
@@ -8,6 +9,10 @@ RUN set -ex; \
       novnc \
       supervisor \
       xterm 
+RUN   pip install pillow --upgrade \
+      pip install pyyaml --upgrade \
+      pip install pygment --upgrade \
+      pip install cryptography --upgrade 
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
