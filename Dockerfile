@@ -22,8 +22,6 @@ ENV HOME=/root \
     RUN_XTERM=no \
     RUN_FLUXBOX=no
 
-RUN apt-get purge python3-pip -y
-
 COPY . /novnc-docker
 
 CMD ["/novnc-docker/app/entrypoint.sh"]
