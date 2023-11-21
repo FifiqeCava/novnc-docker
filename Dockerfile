@@ -7,7 +7,7 @@ RUN set -ex; \
       net-tools \
       novnc \
       supervisor \
-      xterm \
+      xterm 
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
