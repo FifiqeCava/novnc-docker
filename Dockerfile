@@ -13,13 +13,13 @@ RUN set -ex; \
 
 RUN   pip uninstall pillow --break-system-packages \
       pip uninstall pyyaml --break-system-packages \
-      pip uninstall pygment --break-system-packages \
+      pip uninstall pygments --break-system-packages \
       pip uninstall cryptography --break-system-packages 
 
 RUN   pip install pillow>=10.0.1 --break-system-packages \
       pip install pyyaml>=5.4 --break-system-packages 
 
-RUN   pip install pygment>=2.7.4 --break-system-packages \
+RUN   pip install pygments>=2.7.4 --break-system-packages \
       pip install cryptography>=41.0.4 --break-system-packages 
 
 ENV HOME=/root \
