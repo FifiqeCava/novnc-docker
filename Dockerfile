@@ -1,6 +1,7 @@
 FROM debian:stable-slim
 
-RUN apt-get install python3-pip -y
+RUN   apt-get update; \
+      apt-get install python3-pip -y
 
 RUN   pip uninstall pillow --break-system-packages \
       pip uninstall pyyaml --break-system-packages \
