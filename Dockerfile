@@ -8,7 +8,7 @@ RUN set -ex; \
       net-tools \
       novnc \
       supervisor \
-      xterm \
+      xterm 
 
 RUN   pip uninstall pillow --break-system-packages \
       pip uninstall pyyaml --break-system-packages \
