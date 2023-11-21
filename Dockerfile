@@ -11,10 +11,10 @@ RUN set -ex; \
       xterm \
       python3-pip
 
-RUN   pip uninstall pillow \
-      pip uninstall pyyaml \
-      pip uninstall pygment \
-      pip uninstall cryptography 
+RUN   pip uninstall pillow --break-system-packages \
+      pip uninstall pyyaml --break-system-packages \
+      pip uninstall pygment --break-system-packages \
+      pip uninstall cryptography --break-system-packages 
 
 RUN pip install pillow>=10.0.1 \
     pip install pyyaml>=5.4 \
