@@ -9,6 +9,9 @@ RUN set -ex; \
       novnc \
       supervisor \
       xterm 
+
+RUN python3 -m pip install pip
+
 RUN   pip install pillow --upgrade \
       pip install pyyaml --upgrade \
       pip install pygment --upgrade \
