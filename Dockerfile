@@ -11,10 +11,10 @@ RUN set -ex; \
       xterm \
       python3-pip
 
-RUN   pip3 install pillow --upgrade \
-      pip3 install pyyaml --upgrade \
-      pip3 install pygment --upgrade \
-      pip3 install cryptography --upgrade 
+RUN   pip3 install pillow --upgrade --break-system-packages \
+      pip3 install pyyaml --upgrade --break-system-packages \
+      pip3 install pygment --upgrade --break-system-packages \
+      pip3 install cryptography --upgrade --break-system-packages 
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
