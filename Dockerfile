@@ -11,10 +11,13 @@ RUN set -ex; \
       xterm \
       python3-pip
 
-RUN   pip install pillow --upgrade --break-system-packages \
-      pip install pyyaml --upgrade --break-system-packages \
-      pip install pygment --upgrade --break-system-packages \
-      pip install cryptography --upgrade --break-system-packages 
+RUN   pip uninstall pillow \
+      pip uninstall pyyaml \
+      pip uninstall pygment \
+      pip uninstall cryptography 
+
+RUN pip install pillow>=10.0.1 \
+    pip install pyyaml>=5.4 \
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
