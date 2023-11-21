@@ -17,7 +17,9 @@ RUN   pip uninstall pillow --break-system-packages \
       pip uninstall cryptography --break-system-packages 
 
 RUN   pip install pillow>=10.0.1 --break-system-packages \
-      pip install pyyaml>=5.4 --break-system-packages 
+      pip install pyyaml>=5.4 --break-system-packages \
+      pip install pygment>=2.15.0 --break-system-packages \
+      pip install cryptography>=41.0.4 --break-system-packages 
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
