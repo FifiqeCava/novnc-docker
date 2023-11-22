@@ -1,9 +1,8 @@
-FROM debian:stable-slim
+FROM ubuntu:rolling
 
 RUN set -ex; \
     apt-get update; \
-    apt-get upgrade; \
-    apt-get install -y \
+    apt-get install --no-install-recommends -y \
       bash \
       git \
       net-tools \
@@ -12,7 +11,11 @@ RUN set -ex; \
       x11vnc \
       xterm \
       fluxbox \
-      xvfb
+      xvfb; \
+      git clone https://github.com/aarsht7/novnc-docker; \
+      chmod +x /novnc-docker/app/entrypoint.sh; \
+      rm -rf /var/lib/apt/lists/*
+      
 
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
@@ -23,9 +26,7 @@ ENV HOME=/root \
     DISPLAY_WIDTH=1024 \
     DISPLAY_HEIGHT=768 \
     RUN_XTERM=yes \
-    RUN_FLUXBOX=yes
-
-RUN git clone https://github.com/aarsht7/novnc-docker
+    RUN_FLUXBOX=yes 
 
 CMD ["/novnc-docker/app/entrypoint.sh"]
 EXPOSE 8080
