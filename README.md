@@ -45,7 +45,7 @@ modified | ```0C:4H:5M:4L``` | ~ 749M
 
 
 ```
-docker run -d --rm --env="DISPLAY_WIDTH=1920" --env="DISPLAY_HEIGHT=1080" --env="RUN_XTERM=yes" --name=novnc -p=<ip>:8080:8080 <image-name-tag>
+docker run -d --rm --name=novnc --env="DISPLAY_WIDTH=1920" --env="DISPLAY_HEIGHT=1080" --env="RUN_XTERM=yes" --name=novnc -p=<ip>:8080:8080 <image-name-tag>
 ```
 
 Note: If you have used docker pull, then \<image-name-tag\> will remain `1at7/novnc:latest` . \<ip\> is for security purpose and not exposing the port to the internet. You can ofcourse leave it blank but it can be anything that you prefer. for an example (127.111.123.1)
