@@ -18,7 +18,6 @@ RUN pacman -S --noconfirm \
     xorg-apps \
     xorg-server-xvfb \
     xorg-xinit
-    bash \
     git \
     net-tools \
     novnc \
