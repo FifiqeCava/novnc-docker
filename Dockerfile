@@ -1,5 +1,3 @@
-FROM ubuntu:rolling
-
 FROM archlinux:base
 
 LABEL maintainer="fmacrae.dev@gmail.com"
