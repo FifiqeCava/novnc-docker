@@ -1,20 +1,37 @@
 FROM ubuntu:rolling
 
-RUN set -ex; \
-    apt-get update; \
-    apt-get install --no-install-recommends -y \
-      bash \
-      git \
-      net-tools \
-      novnc \
-      supervisor \
-      x11vnc \
-      xterm \
-      fluxbox \
-      xvfb; \
-      git clone https://github.com/aarsht7/novnc-docker; \
-      chmod +x /novnc-docker/app/entrypoint.sh; \
-      rm -rf /var/lib/apt/lists/*
+FROM archlinux:base
+
+LABEL maintainer="fmacrae.dev@gmail.com"
+
+RUN pacman -Sy --noconfirm archlinux-keyring
+RUN pacman -Syyu --noconfirm
+RUN pacman -S --noconfirm \
+    i3status \
+    i3-wm \
+    git \
+    net-tools \
+    python3 \
+    rxvt-unicode \
+    supervisor \
+    ttf-dejavu \
+    x11vnc \
+    xorg-server \
+    xorg-apps \
+    xorg-server-xvfb \
+    xorg-xinit
+    bash \
+    git \
+    net-tools \
+    novnc \
+    supervisor \
+    x11vnc \
+    xterm \
+    fluxbox \
+    xvfb; \
+    git clone https://github.com/aarsht7/novnc-docker; \
+    chmod +x /novnc-docker/app/entrypoint.sh; \
+    rm -rf /var/lib/apt/lists/*
       
 
 ENV HOME=/root \
