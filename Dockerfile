@@ -1,7 +1,6 @@
 FROM archlinux:base
 
 LABEL maintainer="fmacrae.dev@gmail.com"
-
 RUN pacman -Sy --noconfirm archlinux-keyring
 RUN pacman -Syyu --noconfirm
 RUN pacman -S --noconfirm \
@@ -18,11 +17,7 @@ RUN pacman -S --noconfirm \
     xorg-apps \
     xorg-server-xvfb \
     xorg-xinit
-    git \
-    net-tools \
     novnc \
-    supervisor \
-    x11vnc \
     xterm \
     fluxbox \
     xvfb; \
@@ -30,7 +25,6 @@ RUN pacman -S --noconfirm \
     chmod +x /novnc-docker/app/entrypoint.sh; \
     rm -rf /var/lib/apt/lists/*
       
-
 ENV HOME=/root \
     DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
@@ -41,6 +35,5 @@ ENV HOME=/root \
     DISPLAY_HEIGHT=768 \
     RUN_XTERM=yes \
     RUN_FLUXBOX=yes 
-
 CMD ["/novnc-docker/app/entrypoint.sh"]
 EXPOSE 8080
